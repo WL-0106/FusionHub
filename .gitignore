@@ -1,0 +1,13 @@
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# 运行日志
+crash.log
+
+# 截图缓存目录
+.screenshots/
+
+# 临时文件
+*.tmp

@@ -1,0 +1,14 @@
+{
+  "ip": "192.168.1.176",
+  "port": 5000,
+  "poll": true,
+  "poll_ms": 1000,
+  "batch_v": 50.0,
+  "batch_i": 50.0,
+  "ctrl_v": 50.0,
+  "ctrl_i": 50.0,
+  "v_scale": 100,
+  "show_tx": true,
+  "show_rx": true,
+  "autoscroll": true
+}

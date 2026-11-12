@@ -1,0 +1,7 @@
+# FusionHub 融合上位机 · 源码运行依赖
+# 环境：Python 3.8+（本工程按 Python 3.11 验证）
+# 安装：pip install -r requirements.txt
+
+PyQt5>=5.15        # 必需：整体界面框架（含 QtNetwork / QtSerialPort）
+pyserial>=3.5      # 串口收发与端口枚举必需；只用 TCP/模拟从站可不装
+openpyxl>=3.1      # 可选：调试记录导出 .xlsx；不装则自动回退 .csv
