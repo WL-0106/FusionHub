@@ -11,3 +11,8 @@ crash.log
 
 # 临时文件
 *.tmp
+
+# 打包中间产物（防呆：万一就地打包；正式产物在源码外 FusionHub_release 目录）
+build/
+dist/
+*.manifest
