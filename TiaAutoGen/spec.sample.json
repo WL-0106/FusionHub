@@ -1,0 +1,60 @@
+{
+  "ProjectName": "DemoLine",
+  "ProjectDirectory": "projects",
+  "WithUserInterface": false,
+  "Compile": true,
+  "Save": true,
+  "Strict": false,
+
+  "Plcs": [
+    {
+      "DeviceName": "PLC_1",
+      "CatalogName": "CPU 1511-1 PN",
+      "TypeName": "CPU 1511-1 PN",
+      "TagTables": [
+        {
+          "Name": "IO_Tags",
+          "Tags": [
+            { "Name": "MotorStart", "DataType": "Bool", "Address": "%M0.0" },
+            { "Name": "MotorStop", "DataType": "Bool", "Address": "%M0.1" },
+            { "Name": "MotorRun", "DataType": "Bool", "Address": "%M0.2" },
+            { "Name": "SpeedSetpoint", "DataType": "Int", "Address": "%MW10" }
+          ]
+        }
+      ],
+      "Sources": [
+        { "Name": "MotorControl", "Path": "scl/MotorControl.scl" },
+        { "Name": "ConveyorLogic", "Path": "scl/ConveyorLogic.scl" }
+      ]
+    }
+  ],
+
+  "Hmis": [
+    {
+      "DeviceName": "HMI_1",
+      "CatalogName": "Unified Comfort Panel",
+      "TypeName": "6AV2128-3QB06-0AX0",
+      "PlcDeviceName": "PLC_1",
+      "ConnectionName": "HMI_Connection",
+      "SubnetName": "PN_Subnet",
+      "TagTableName": "HmiTags",
+      "Tags": [
+        { "Name": "MotorRun", "PlcTag": "\"IO_Tags\".MotorRun" },
+        { "Name": "SpeedSetpoint", "PlcTag": "\"IO_Tags\".SpeedSetpoint" }
+      ],
+      "Screens": [
+        {
+          "Name": "MainScreen",
+          "Width": 1920,
+          "Height": 1080,
+          "Items": [
+            { "Name": "BtnStart", "Type": "HmiButton", "Left": 80, "Top": 80, "Width": 200, "Height": 60, "Text": "START" },
+            { "Name": "BtnStop", "Type": "HmiButton", "Left": 320, "Top": 80, "Width": 200, "Height": 60, "Text": "STOP" },
+            { "Name": "IoRun", "Type": "HmiIOField", "Left": 80, "Top": 200, "Width": 200, "Height": 50 },
+            { "Name": "IoSpeed", "Type": "HmiIOField", "Left": 320, "Top": 200, "Width": 200, "Height": 50 }
+          ]
+        }
+      ]
+    }
+  ]
+}

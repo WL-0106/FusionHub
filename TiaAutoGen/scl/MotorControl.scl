@@ -1,0 +1,22 @@
+FUNCTION_BLOCK "FB_MotorControl"
+VAR_INPUT
+    Start : Bool;
+    Stop : Bool;
+END_VAR
+VAR_OUTPUT
+    Running : Bool;
+END_VAR
+VAR
+    LastStart : Bool;
+END_VAR
+BEGIN
+    IF Start AND NOT LastStart THEN
+        IF NOT Stop THEN
+            Running := TRUE;
+        END_IF;
+    END_IF;
+    IF Stop THEN
+        Running := FALSE;
+    END_IF;
+    LastStart := Start;
+END_FUNCTION_BLOCK
